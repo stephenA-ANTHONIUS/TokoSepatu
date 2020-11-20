@@ -31,13 +31,13 @@ def verify_ans(char):
 def print_data(sepatu=None, ukuran=True, warna=True, harga=True, all_data=False):
 	if sepatu != None and all_data == False:
 		print(f"UKURAN : {sepatu}")
-		print(f"WARNA : {tokosepatu[sepatu]['warna']}")
-		print(f"HARGA : {tokosepatu[sepatu]['harga']}")
+		print(f"WARNA : {shoestore[sepatu]['warna']}")
+		print(f"HARGA : {shoestore[sepatu]['harga']}")
 	elif harga == False and all_data == False:
 		print(f"UKURAN : {shoes}")
-		print(f"WARNA : {tokosepatu[sepatu]['warna']}")
+		print(f"WARNA : {shoestore[sepatu]['warna']}")
 	elif all_data == True:
-		for every_shoes in tokosepatu: # lists, string, dict
+		for every_shoes in shoestore: # lists, string, dict
 			ukuran = every_shoes # ukuran = key dari dict-nya
 			warna = shoestore[every_shoes]["warna"]
 			harga = shoestore[every_shoes]["harga"]
@@ -57,7 +57,7 @@ def add_shoes():
 	ukuran = input("UKURAN \t: ")
 	warna = input("WARNA \t: ")
 	harga = input("HARGA \t: ")
-	respon = input(f"Apakah yakin ingin menyimpan sepatu : {ukuran} ? (Y/N) ")
+	respon = input(f"Apakah yakin ingin menyimpan sepatu : {merek} ? (Y/N) ")
 	if verify_ans(respon):
 		shoestore[merek] = {
 			"ukuran" :ukuran,
@@ -174,7 +174,7 @@ def check_user_input(char):
 	elif char == "5":
 		update_shoes()
 
-tokosepatu = {
+shoestore = {
 	"addidas" : {
 		"ukuran": "40",
 		"warna" : "biru",
